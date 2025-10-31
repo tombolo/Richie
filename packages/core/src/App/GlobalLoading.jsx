@@ -39,7 +39,7 @@ const GlobalLoading = () => {
                 '--red': colors.red,
                 '--background': colors.background,
                 '--text': colors.text
-            } as any}
+            }}
         >
             <div className={styles['loading-container']}>
                 {/* Bouncing Logo */}
