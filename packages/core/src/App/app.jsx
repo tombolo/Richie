@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation, withTranslation } from 'react-i18next';
 import { BrowserRouter as Router } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import GlobalLoading from './GlobalLoading';
 import Disclaimer from '../../../appstore/src/components/disclaimer/disclaimer';
 
 import { APIProvider } from '@deriv/api';
@@ -32,7 +31,7 @@ import AppContent from './AppContent';
 
 import 'Sass/app.scss';
 
-const MIN_LOADING_TIME = 15000; // 10 seconds
+const MIN_LOADING_TIME = 15000; // 15 seconds
 
 const AppWithoutTranslation = ({ root_store }) => {
     const i18nInstance = initializeI18n({
@@ -165,7 +164,7 @@ const AppWithoutTranslation = ({ root_store }) => {
                                     <P2PSettingsProvider>
                                         <TranslationProvider defaultLang={language} i18nInstance={i18nInstance}>
                                             {/* This is required as translation provider uses suspense to reload language */}
-                                            <React.Suspense fallback={<GlobalLoading />}>
+                                            <React.Suspense fallback={<Loading />}>
                                                 <AppContent passthrough={platform_passthrough} />
                                                 <Disclaimer />
                                             </React.Suspense>
@@ -177,7 +176,7 @@ const AppWithoutTranslation = ({ root_store }) => {
                     </StoreProvider>
                 </Router>
             ) : (
-                <GlobalLoading />
+                <Loading />
             )}
         </>
     );
