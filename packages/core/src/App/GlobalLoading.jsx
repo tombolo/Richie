@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import './GlobalLoading.module.scss';
+import styles from './GlobalLoading.module.scss'; // Import styles
 import LOGO from './Logo/NILOTE.png';
 
 const GlobalLoading = () => {
@@ -83,19 +83,19 @@ const GlobalLoading = () => {
                     L 1000,50`;
 
     return (
-        <div className='global-loading'>
+        <div className={styles['global-loading']}>
             {/* Grid background */}
-            <div className='grid-background'>
-                <div className='grid-lines'></div>
-                <div className='grid-overlay'></div>
+            <div className={styles['grid-background']}>
+                <div className={styles['grid-lines']}></div>
+                <div className={styles['grid-overlay']}></div>
             </div>
 
             {/* Floating data points - reduced on mobile */}
-            <div className='data-points-container'>
+            <div className={styles['data-points-container']}>
                 {Array.from({ length: isMobile ? 8 : 25 }).map((_, i) => (
                     <motion.div
                         key={i}
-                        className='data-point'
+                        className={styles['data-point']}
                         initial={{
                             opacity: 0,
                             x: Math.random() * 100 - 50,
@@ -117,11 +117,11 @@ const GlobalLoading = () => {
             </div>
 
             {/* Enhanced particle effects */}
-            <div className='particle-effects'>
+            <div className={styles['particle-effects']}>
                 {Array.from({ length: isMobile ? 5 : 15 }).map((_, i) => (
                     <motion.div
                         key={`particle-${i}`}
-                        className='particle'
+                        className={styles['particle']}
                         initial={{
                             opacity: 0,
                             x: Math.random() * window.innerWidth,
@@ -144,11 +144,11 @@ const GlobalLoading = () => {
             </div>
 
             {/* Binary rain effect - reduced on mobile */}
-            <div className='binary-rain'>
+            <div className={styles['binary-rain']}>
                 {Array.from({ length: isMobile ? 10 : 30 }).map((_, i) => (
                     <motion.div
                         key={i}
-                        className='binary-digit'
+                        className={styles['binary-digit']}
                         style={{
                             left: `${Math.random() * 100}%`,
                             animationDelay: `${Math.random() * 5}s`,
@@ -168,7 +168,7 @@ const GlobalLoading = () => {
 
             {/* Main content */}
             <motion.div
-                className='logo-container'
+                className={styles['logo-container']}
                 initial={{ opacity: 0, y: -20, scale: 0.9 }}
                 animate={controls}
                 variants={{
@@ -183,9 +183,9 @@ const GlobalLoading = () => {
                     },
                 }}
             >
-                <img src={LOGO} alt='Deriv Logo' className='logo' />
+                <img src={LOGO} alt='Deriv Logo' className={styles['logo']} />
                 <motion.div
-                    className='logo-glow'
+                    className={styles['logo-glow']}
                     animate={{
                         opacity: [0.3, 0.6, 0.3],
                         scale: [1, 1.1, 1],
@@ -198,61 +198,61 @@ const GlobalLoading = () => {
             </motion.div>
 
             {/* Deriv Branding */}
-            <div className='deriv-branding'>
+            <div className={styles['deriv-branding']}>
                 <motion.div
-                    className='powered-by'
+                    className={styles['powered-by']}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.6 }}
                 >
-                    <span className='brand-text'>Powered by</span>
-                    <span className='deriv-name'>Deriv</span>
-                    <div className='brand-glow'></div>
+                    <span className={styles['brand-text']}>Powered by</span>
+                    <span className={styles['deriv-name']}>Deriv</span>
+                    <div className={styles['brand-glow']}></div>
                 </motion.div>
 
                 <motion.div
-                    className='partnership'
+                    className={styles['partnership']}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
                 >
-                    <span className='brand-text'>In partnership with</span>
-                    <span className='deriv-name'>Deriv</span>
-                    <div className='brand-glow'></div>
+                    <span className={styles['brand-text']}>In partnership with</span>
+                    <span className={styles['deriv-name']}>Deriv</span>
+                    <div className={styles['brand-glow']}></div>
                 </motion.div>
             </div>
 
             {showElements && (
-                <div className='content-wrapper'>
+                <div className={styles['content-wrapper']}>
                     {/* Trading terminal with holographic effect */}
                     <motion.div
-                        className='trading-terminal'
+                        className={styles['trading-terminal']}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <div className='terminal-header'>
-                            <div className='terminal-title'>MARKET DATA STREAM</div>
-                            <div className='terminal-status'>
-                                <span className='status-indicator'></span>
+                        <div className={styles['terminal-header']}>
+                            <div className={styles['terminal-title']}>MARKET DATA STREAM</div>
+                            <div className={styles['terminal-status']}>
+                                <span className={styles['status-indicator']}></span>
                                 LIVE
                             </div>
                         </div>
 
-                        <div className='chart-container'>
-                            <div className='chart-grid'>
-                                <div className='grid-line'></div>
-                                <div className='grid-line'></div>
-                                <div className='grid-line'></div>
-                                <div className='grid-line'></div>
-                                <div className='grid-line'></div>
+                        <div className={styles['chart-container']}>
+                            <div className={styles['chart-grid']}>
+                                <div className={styles['grid-line']}></div>
+                                <div className={styles['grid-line']}></div>
+                                <div className={styles['grid-line']}></div>
+                                <div className={styles['grid-line']}></div>
+                                <div className={styles['grid-line']}></div>
                             </div>
 
                             <svg
                                 width='100%'
                                 height={isMobile ? '80' : '160'}
                                 viewBox='0 0 1000 100'
-                                className='chart-svg'
+                                className={styles['chart-svg']}
                             >
                                 <defs>
                                     <linearGradient id='chartGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
@@ -300,11 +300,11 @@ const GlobalLoading = () => {
                             </svg>
 
                             {/* Candlestick animation */}
-                            <div className='candlestick-animation'>
+                            <div className={styles['candlestick-animation']}>
                                 {Array.from({ length: isMobile ? 6 : 15 }).map((_, i) => (
                                     <motion.div
                                         key={i}
-                                        className='candlestick'
+                                        className={styles['candlestick']}
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{
                                             height: Math.random() * 20 + 5,
@@ -319,20 +319,20 @@ const GlobalLoading = () => {
                                             repeatDelay: (isMobile ? 6 : 15) * 0.1,
                                         }}
                                     >
-                                        <div className='wick' />
-                                        <div className='body' />
+                                        <div className={styles['wick']} />
+                                        <div className={styles['body']} />
                                     </motion.div>
                                 ))}
                             </div>
                         </div>
 
                         {/* Market data ticker with enhanced design */}
-                        <div className='market-ticker'>
-                            <div className='ticker-scroll'>
-                                <div className='ticker-item'>
-                                    <span className='ticker-label'>EUR/USD</span>
+                        <div className={styles['market-ticker']}>
+                            <div className={styles['ticker-scroll']}>
+                                <div className={styles['ticker-item']}>
+                                    <span className={styles['ticker-label']}>EUR/USD</span>
                                     <motion.span
-                                        className='ticker-value'
+                                        className={styles['ticker-value']}
                                         key={`eurusd-${marketData.eurusd}`}
                                         initial={{ y: 10, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
@@ -342,17 +342,17 @@ const GlobalLoading = () => {
                                         {marketData.eurusd}
                                     </motion.span>
                                     <motion.span
-                                        className='ticker-change'
+                                        className={styles['ticker-change']}
                                         animate={{ color: ['#22c55e', '#ffffff'] }}
                                         transition={{ duration: 1, repeat: Infinity }}
                                     >
                                         +0.2%
                                     </motion.span>
                                 </div>
-                                <div className='ticker-item'>
-                                    <span className='ticker-label'>BTC/USD</span>
+                                <div className={styles['ticker-item']}>
+                                    <span className={styles['ticker-label']}>BTC/USD</span>
                                     <motion.span
-                                        className='ticker-value'
+                                        className={styles['ticker-value']}
                                         key={`btcusd-${marketData.btcusd}`}
                                         initial={{ y: 10, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
@@ -362,17 +362,17 @@ const GlobalLoading = () => {
                                         {marketData.btcusd}
                                     </motion.span>
                                     <motion.span
-                                        className='ticker-change'
+                                        className={styles['ticker-change']}
                                         animate={{ color: ['#ef4444', '#ffffff'] }}
                                         transition={{ duration: 1, repeat: Infinity }}
                                     >
                                         -1.5%
                                     </motion.span>
                                 </div>
-                                <div className='ticker-item'>
-                                    <span className='ticker-label'>VOLATILITY</span>
+                                <div className={styles['ticker-item']}>
+                                    <span className={styles['ticker-label']}>VOLATILITY</span>
                                     <motion.span
-                                        className='ticker-value'
+                                        className={styles['ticker-value']}
                                         key={`vol-${marketData.volatility}`}
                                         initial={{ y: 10, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
@@ -382,10 +382,10 @@ const GlobalLoading = () => {
                                         {marketData.volatility}
                                     </motion.span>
                                 </div>
-                                <div className='ticker-item'>
-                                    <span className='ticker-label'>GOLD</span>
+                                <div className={styles['ticker-item']}>
+                                    <span className={styles['ticker-label']}>GOLD</span>
                                     <motion.span
-                                        className='ticker-value'
+                                        className={styles['ticker-value']}
                                         key={`gold-${marketData.gold}`}
                                         initial={{ y: 10, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
@@ -395,10 +395,10 @@ const GlobalLoading = () => {
                                         {marketData.gold}
                                     </motion.span>
                                 </div>
-                                <div className='ticker-item'>
-                                    <span className='ticker-label'>S&P 500</span>
+                                <div className={styles['ticker-item']}>
+                                    <span className={styles['ticker-label']}>S&P 500</span>
                                     <motion.span
-                                        className='ticker-value'
+                                        className={styles['ticker-value']}
                                         key={`sp500-${marketData.sp500}`}
                                         initial={{ y: 10, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
@@ -413,39 +413,39 @@ const GlobalLoading = () => {
                     </motion.div>
 
                     {/* Progress section with high-tech design */}
-                    <div className='progress-section'>
-                        <div className='progress-container'>
-                            <div className='progress-labels'>
-                                <span className='progress-text'>{progress}%</span>
-                                <span className='progress-message'>Initializing trading modules...</span>
+                    <div className={styles['progress-section']}>
+                        <div className={styles['progress-container']}>
+                            <div className={styles['progress-labels']}>
+                                <span className={styles['progress-text']}>{progress}%</span>
+                                <span className={styles['progress-message']}>Initializing trading modules...</span>
                             </div>
-                            <div className='progress-track'>
+                            <div className={styles['progress-track']}>
                                 <motion.div
-                                    className='progress-bar'
+                                    className={styles['progress-bar']}
                                     initial={{ width: 0 }}
                                     animate={{ width: `${progress}%` }}
                                     transition={{ duration: 10, ease: 'linear' }}
                                 >
-                                    <div className='progress-glow' />
-                                    <div className='progress-pulse'></div>
+                                    <div className={styles['progress-glow']} />
+                                    <div className={styles['progress-pulse']}></div>
                                 </motion.div>
                             </div>
-                            <div className='progress-markers'>
-                                <div className='marker'></div>
-                                <div className='marker'></div>
-                                <div className='marker'></div>
-                                <div className='marker'></div>
-                                <div className='marker'></div>
+                            <div className={styles['progress-markers']}>
+                                <div className={styles['marker']}></div>
+                                <div className={styles['marker']}></div>
+                                <div className={styles['marker']}></div>
+                                <div className={styles['marker']}></div>
+                                <div className={styles['marker']}></div>
                             </div>
                         </div>
                     </div>
 
                     {/* Animated trading bots with enhanced effects */}
-                    <div className='trading-bots'>
+                    <div className={styles['trading-bots']}>
                         {['📈', '💹', '📊', '📉', '💲'].map((emoji, i) => (
                             <motion.div
                                 key={i}
-                                className='bot-icon'
+                                className={styles['bot-icon']}
                                 initial={{ x: -100, opacity: 0, rotate: -20 }}
                                 animate={{
                                     x: 0,
@@ -465,7 +465,7 @@ const GlobalLoading = () => {
                             >
                                 {emoji}
                                 <motion.div
-                                    className='bot-trail'
+                                    className={styles['bot-trail']}
                                     animate={{
                                         scale: [0.8, 1.2, 0.8],
                                         opacity: [0.4, 0.8, 0.4],
@@ -477,7 +477,7 @@ const GlobalLoading = () => {
                                     }}
                                 />
                                 <motion.div
-                                    className='bot-connection'
+                                    className={styles['bot-connection']}
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
                                     transition={{ delay: 1.5 + i * 0.2 }}
@@ -491,7 +491,7 @@ const GlobalLoading = () => {
             {/* Status message with typing effect */}
             <AnimatePresence>
                 <motion.div
-                    className='status-message'
+                    className={styles['status-message']}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{
                         opacity: 1,
@@ -500,7 +500,7 @@ const GlobalLoading = () => {
                     }}
                     exit={{ opacity: 0 }}
                 >
-                    <div className='typing-indicator'>
+                    <div className={styles['typing-indicator']}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -521,11 +521,11 @@ const GlobalLoading = () => {
             </AnimatePresence>
 
             {/* Connection nodes animation */}
-            <div className='connection-nodes'>
+            <div className={styles['connection-nodes']}>
                 {Array.from({ length: isMobile ? 4 : 8 }).map((_, i) => (
                     <motion.div
                         key={i}
-                        className='node'
+                        className={styles['node']}
                         animate={{
                             scale: [0.8, 1.2, 0.8],
                             opacity: [0.5, 1, 0.5],
@@ -536,7 +536,7 @@ const GlobalLoading = () => {
                             delay: Math.random() * 2,
                         }}
                     >
-                        <div className='node-pulse'></div>
+                        <div className={styles['node-pulse']}></div>
                     </motion.div>
                 ))}
             </div>
