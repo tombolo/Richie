@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import styles from './CopyTradingPage.module.scss';
+import styles from './GlobalLoading.module.scss';
 import LOGO from './LOGO/NILOTE.png';
 
 const GlobalLoading = () => {
