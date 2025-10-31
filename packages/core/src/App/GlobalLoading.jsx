@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import styles from './GlobalLoading.module.scss';
-import LOGO from './LOGO/NILOTE.png';
+import LOGO from './Logo/NILOTE.png';
 
 const GlobalLoading = () => {
     const [progress, setProgress] = useState(0);
