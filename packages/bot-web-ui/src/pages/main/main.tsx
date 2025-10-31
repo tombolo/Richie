@@ -288,12 +288,8 @@ const AppWrapper = observer(() => {
             {is_desktop ? (
                 <>
                     <div className='main__run-strategy-wrapper'>
-                        {active_tab !== 4 && (
-                            <>
-                                <RunStrategy />
-                                <RunPanel />
-                            </>
-                        )}
+                        <RunStrategy />
+                        <RunPanel />
                     </div>
                     <ChartModal />
                     <TradingViewModal />
